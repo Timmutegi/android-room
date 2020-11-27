@@ -1,0 +1,95 @@
+{
+  "formatVersion": 1,
+  "database": {
+    "version": 1,
+    "identityHash": "4b6e63e5650e549745e4a2692f78d04e",
+    "entities": [
+      {
+        "tableName": "Courses",
+        "createSql": "CREATE TABLE IF NOT EXISTS `${TABLE_NAME}` (`courseId` INTEGER NOT NULL, `courseName` TEXT, PRIMARY KEY(`courseId`))",
+        "fields": [
+          {
+            "fieldPath": "courseId",
+            "columnName": "courseId",
+            "affinity": "INTEGER",
+            "notNull": true
+          },
+          {
+            "fieldPath": "courseName",
+            "columnName": "courseName",
+            "affinity": "TEXT",
+            "notNull": false
+          }
+        ],
+        "primaryKey": {
+          "columnNames": [
+            "courseId"
+          ],
+          "autoGenerate": false
+        },
+        "indices": [],
+        "foreignKeys": []
+      },
+      {
+        "tableName": "Students",
+        "createSql": "CREATE TABLE IF NOT EXISTS `${TABLE_NAME}` (`StudentId` INTEGER NOT NULL, `CourseID` INTEGER NOT NULL, `Q1` INTEGER NOT NULL, `Q2` INTEGER NOT NULL, `Q3` INTEGER NOT NULL, `Q4` INTEGER NOT NULL, `Q5` INTEGER NOT NULL, PRIMARY KEY(`StudentId`))",
+        "fields": [
+          {
+            "fieldPath": "StudentId",
+            "columnName": "StudentId",
+            "affinity": "INTEGER",
+            "notNull": true
+          },
+          {
+            "fieldPath": "CourseID",
+            "columnName": "CourseID",
+            "affinity": "INTEGER",
+            "notNull": true
+          },
+          {
+            "fieldPath": "Q1",
+            "columnName": "Q1",
+            "affinity": "INTEGER",
+            "notNull": true
+          },
+          {
+            "fieldPath": "Q2",
+            "columnName": "Q2",
+            "affinity": "INTEGER",
+            "notNull": true
+          },
+          {
+            "fieldPath": "Q3",
+            "columnName": "Q3",
+            "affinity": "INTEGER",
+            "notNull": true
+          },
+          {
+            "fieldPath": "Q4",
+            "columnName": "Q4",
+            "affinity": "INTEGER",
+            "notNull": true
+          },
+          {
+            "fieldPath": "Q5",
+            "columnName": "Q5",
+            "affinity": "INTEGER",
+            "notNull": true
+          }
+        ],
+        "primaryKey": {
+          "columnNames": [
+            "StudentId"
+          ],
+          "autoGenerate": false
+        },
+        "indices": [],
+        "foreignKeys": []
+      }
+    ],
+    "setupQueries": [
+      "CREATE TABLE IF NOT EXISTS room_master_table (id INTEGER PRIMARY KEY,identity_hash TEXT)",
+      "INSERT OR REPLACE INTO room_master_table (id,identity_hash) VALUES(42, \"4b6e63e5650e549745e4a2692f78d04e\")"
+    ]
+  }
+}
